@@ -1,9 +1,14 @@
 package com.example.ducvu212.mvp.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by CuD HniM on 18/08/06.
  */
-public class User {
+public class User implements Parcelable {
 
     @SerializedName("login")
     @Expose
@@ -213,5 +218,64 @@ public class User {
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+    public final static Parcelable.Creator<User> CREATOR = new Creator<User>() {
+
+        @SuppressWarnings({
+                "unchecked"
+        })
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        public User[] newArray(int size) {
+            return (new User[size]);
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    protected User(Parcel in) {
+        login = in.readString();
+        id = in.readInt();
+        nodeId = in.readString();
+        avatarUrl = in.readString();
+        gravatarId = in.readString();
+        url = in.readString();
+        htmlUrl = in.readString();
+        followersUrl = in.readString();
+        followingUrl = in.readString();
+        gistsUrl = in.readString();
+        starredUrl = in.readString();
+        subscriptionsUrl = in.readString();
+        organizationsUrl = in.readString();
+        reposUrl = in.readString();
+        eventsUrl = in.readString();
+        receivedEventsUrl = in.readString();
+        type = in.readString();
+        score = in.readDouble();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int i) {
+        dest.writeString(login);
+        dest.writeString(avatarUrl);
+        dest.writeString(gravatarId);
+        dest.writeString(url);
+        dest.writeString(htmlUrl);
+        dest.writeString(followersUrl);
+        dest.writeString(followingUrl);
+        dest.writeString(gistsUrl);
+        dest.writeString(starredUrl);
+        dest.writeString(subscriptionsUrl);
+        dest.writeString(organizationsUrl);
+        dest.writeString(reposUrl);
+        dest.writeString(eventsUrl);
+        dest.writeString(receivedEventsUrl);
+        dest.writeString(type);
     }
 }

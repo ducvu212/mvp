@@ -1,6 +1,6 @@
-package com.example.ducvu212.mvp.sceen.userdetails;
+package com.example.ducvu212.mvp.screen.userdetails;
 
-import com.example.ducvu212.mvp.sceen.base.BasePresenterImp;
+import com.example.ducvu212.mvp.screen.base.BasePresenterImp;
 
 /**
  * Created by CuD HniM on 18/08/06.

@@ -1,4 +1,4 @@
-package com.example.ducvu212.mvp.sceen.base;
+package com.example.ducvu212.mvp.screen.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import butterknife.ButterKnife;
 
 /**
  * Created by CuD HniM on 18/08/06.
@@ -23,8 +24,8 @@ public abstract class BaseFragment <BPresenter extends BasePresenter>
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View view = inflater.inflate(getContentViewId(), container, false);
+        ButterKnife.bind(view);
         mPresenter = createPresenter();
-
         initializeComponents(view);
         return view;
     }

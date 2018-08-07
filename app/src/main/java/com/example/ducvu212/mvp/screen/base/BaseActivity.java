@@ -1,8 +1,9 @@
-package com.example.ducvu212.mvp.sceen.base;
+package com.example.ducvu212.mvp.screen.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import butterknife.ButterKnife;
 
 /**
  * Created by CuD HniM on 18/08/06.
@@ -15,6 +16,7 @@ public abstract class BaseActivity<BPresenter extends BasePresenter>
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         int contentViewId = getContentViewId();
         if (contentViewId <= 0) {
             return;

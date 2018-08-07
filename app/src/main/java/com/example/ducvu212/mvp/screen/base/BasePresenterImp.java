@@ -1,4 +1,4 @@
-package com.example.ducvu212.mvp.sceen.base;
+package com.example.ducvu212.mvp.screen.base;
 
 /**
  * Created by CuD HniM on 18/08/06.

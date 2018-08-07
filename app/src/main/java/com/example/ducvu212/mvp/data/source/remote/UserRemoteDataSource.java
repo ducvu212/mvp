@@ -1,5 +1,6 @@
 package com.example.ducvu212.mvp.data.source.remote;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import com.example.ducvu212.mvp.data.model.GitRespone;
 import com.example.ducvu212.mvp.data.model.User;
@@ -42,6 +43,7 @@ public class UserRemoteDataSource extends UserDataSource {
         new GetUserFromGit(onNetworkChange).execute(url);
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class GetUserFromGit extends AsyncTask<String, Void, List<User>> {
 
         private onNetworkChange mNetworkChange;
@@ -66,7 +68,7 @@ public class UserRemoteDataSource extends UserDataSource {
         @Override
         protected void onPostExecute(List<User> users) {
             super.onPostExecute(users);
-            mNetworkChange.onSuccess();
+            mNetworkChange.onSuccess(users);
         }
     }
 
